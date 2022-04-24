@@ -1,0 +1,17 @@
+{
+  "name": "alura-pic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Rubén Vásquez",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^9.5.4"
+  },
+  "dependencies": {
+    "eslint-plugin-cypress": "^2.12.1"
+  }
+}
