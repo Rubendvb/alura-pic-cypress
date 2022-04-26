@@ -43,20 +43,21 @@ describe("Login e registro de usuários alurapic", () => {
   });
 
   // 5to Caso de teste
-  it.only("Fazer login de usuário válido", () => {
-    cy.get('input[formcontrolname="userName"]').type("flavio");
-    cy.get('input[formcontrolname="password"]').type("123");
-    cy.get("button[type='submit']").click();
+  it("Fazer login de usuário válido", () => {
+    cy.login("flavio", "123");
     cy.contains("a", "(Logout)").should("be.visible");
   });
 
   // 6to Caso de teste
-  it.only("Fazer login de usuário inválido", () => {
-    cy.get('input[formcontrolname="userName"]').type("jacqueline");
-    cy.get('input[formcontrolname="password"]').type("1234");
-    cy.get("button[type='submit']").click();
+  it("Fazer login de usuário inválido", () => {
+    cy.login("jaqueline", "1234");
     cy.on("window:alert", (str) => {
       expect(str).to.equal("Invalid user name or password");
     });
+  });
+
+  // 7to Caso de teste
+  it.only("Registro de novo usuário", () => {
+    cy.registro("teste@teste.com", "Ruben", "ruben12", "123456789");
   });
 });
