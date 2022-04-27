@@ -57,7 +57,16 @@ describe("Login e registro de usuários alurapic", () => {
   });
 
   // 7to Caso de teste
-  it.only("Registro de novo usuário", () => {
-    cy.registro("teste@teste.com", "Ruben", "ruben12", "123456789");
+  const usuarios = require("../../fixtures/usuarios.json");
+
+  usuarios.forEach((usuario) => {
+    it.only(`Registro de novo usuário ${usuario.userName}`, () => {
+      cy.registro(
+        usuario.email,
+        usuario.name,
+        usuario.userName,
+        usuario.password
+      );
+    });
   });
 });
