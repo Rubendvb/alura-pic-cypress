@@ -17,7 +17,7 @@ describe("Buscar fotos e dados", () => {
     cy.request({
       method: "POST",
       url: "https://apialurapic.herokuapp.com/user/login",
-      body: Cypress.env(),
+      body: Cypress.env(), // pega os dados do arquivo .env
     }).then((res) => {
       expect(res.status).to.eq(200); // espera que o status da requisição seja 200
       expect(res.body).is.not.empty; // verifica se o body não está vazio

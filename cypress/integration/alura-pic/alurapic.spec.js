@@ -20,7 +20,7 @@ describe("Login e registro de usuários alurapic", () => {
   it("Verifica mensagem de email inválido", () => {
     cy.contains("a", "Register now").click();
     cy.contains("button", "Register").click();
-    cy.get("input[formcontrolname=email]").type("ruben ");
+    cy.get("input[formcontrolname=email]").type("ruben");
     cy.contains("ap-vmessage", "Invalid e-mail").should("be.visible");
   });
 
