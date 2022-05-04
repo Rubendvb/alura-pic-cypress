@@ -1,6 +1,6 @@
 Cypress.Commands.add("login", (nome, senha) => {
   cy.get('input[formcontrolname="userName"]').type(nome);
-  cy.get('input[formcontrolname="password"]').type(senha);
+  cy.get('input[formcontrolname="password"]').type(senha, { log: false }); // não mostra a senha no console
   cy.get("button[type='submit']").click();
 });
 

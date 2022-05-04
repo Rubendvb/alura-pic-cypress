@@ -1,7 +1,9 @@
 /// <reference types="cypress" />
 
 describe("Buscar fotos e dados", () => {
-  it("Buscar fotos do Flavio", () => {
+  const tempoEsperado = Math.random() * 2000;
+
+  it.only("Buscar fotos do Flavio", () => {
     cy.request({
       method: "GET",
       url: "https://apialurapic.herokuapp.com/flavio/photos",
@@ -10,6 +12,7 @@ describe("Buscar fotos e dados", () => {
       expect(res.body).is.not.empty; // verifica se o body não está vazio
       expect(res.body[0]).to.have.property("description"); // verifica se o body tem a propriedade description
       expect(res.body[0].description).to.be.eq("Farol iluminado"); // verifica se o body tem a propriedade description com o valor Farol iluminado (descrição da foto)
+      expect(res.duration).to.be.lte(tempoEsperado); // verifica se o tempo de resposta da requisição é menor ou igual ao tempo esperado
     });
   });
 
